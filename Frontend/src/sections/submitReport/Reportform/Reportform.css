@@ -1,0 +1,168 @@
+.Form_title {
+    text-align: center;
+    font-size: 2.6rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #d90429;
+}
+
+/* ======================================= */
+/* FIX #1: Added padding-top to push the whole form down from the navbar */
+/* ======================================= */
+.page-container {
+  padding: 80px 20px 20px 20px; /* Pushes everything down by 80px */
+  font-family: 'Inter', sans-serif;
+  background-color: #f0f2f5;
+}
+
+/* ======================================= */
+/* FIX #3: Reduced the max-width to make the form narrower */
+/* ======================================= */
+.report_form {
+  max-width: 800px; /* Was 900px, now it's a bit narrower */
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.form_section {
+  margin-bottom: 25px;
+}
+
+.form_label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.map_search_wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.search_panel {
+  position: relative;
+  flex: 1.15;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.location_search_input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.search_button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search_button:hover {
+  background-color: #0056b3;
+}
+
+.suggestion_list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Map z-index is around 400, so this is on top */
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.suggestion_item {
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+.suggestion_item:last-child {
+  border-bottom: none;
+}
+.suggestion_item:hover {
+  background-color: #f0f0f0;
+}
+
+.map_panel {
+  flex: 1.5;
+  min-height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.report_form textarea,
+.report_form input[type="datetime-local"],
+.report_form input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ======================================= */
+/* FIX #4: Centered the submit button */
+/* ======================================= */
+.submit_button_wrapper {
+  display: flex;
+  justify-content: center; /* This centers the button horizontally */
+  margin-top: 20px;
+}
+
+.submit_form {
+  /* Removed 'display: block' and 'width: 100%' */
+  padding: 12px 40px; /* Added more horizontal padding for a better look */
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #d90429;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit_form:hover {
+  background-color: #b2001c;
+}
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 850px) {
+  .map_search_wrapper {
+    flex-direction: column;
+  }
+
+  .map_panel {
+    min-height: 350px;
+  }
+
+  .report_form {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+}

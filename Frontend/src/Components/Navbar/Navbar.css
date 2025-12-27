@@ -1,0 +1,50 @@
+nav {
+  color: white;
+  height: 62px;
+  width: 100%;
+  padding: 0 5%; /* Use percentage for better responsiveness */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  transition: background-color 0.5s ease; /* Moved transition here */
+  box-sizing: border-box; /* Good practice */
+}
+
+.logo {
+  width: 95px;
+  height: 60px;
+  transform: scale(1.4);
+}
+
+/* Changed selector to ul.nav-links li */
+ul.nav-links li {
+  display: inline-block;
+  list-style: none;
+  font-size: 13px;
+  margin: 0 15px; /* Adjusted margin */
+}
+
+.s-btn {
+  background-color: #f02525;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.nav_dark {
+  background-color: #181b1e;
+}
+
+ul.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
