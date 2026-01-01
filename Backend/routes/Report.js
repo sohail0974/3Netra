@@ -13,7 +13,7 @@ router.get('/',async (req,res)=>{
     }
 })
 router.post('/',upload.single('evidence'), async (req,res)=>{
-    const {location,description,dateandtime} = req.body;
+    const {location,description,dateandtime,address} = req.body;
     const evidencePath = req.file? req.file.path : null;
     console.log(req.file);
     try{

@@ -71,7 +71,7 @@ const ViewReports = () => {
     document.body.style.overflow = 'auto';
   };
 
-  // Helper function to create a title since we don't have location names
+  
   const getTitle = (report) => {
     if (report.location && report.location.lat) {
       return `Incident at ${report.location.lat.toFixed(4)}, ${report.location.lng.toFixed(4)}`;
@@ -140,9 +140,9 @@ const ViewReports = () => {
                 onClick={() => handleCardClick(report)}
               >
                 <div className="card-content">
-                  {/* FIX 3: Use helper function for Title */}
+                  
                   <h3 className="card-location">{report.address ? report.address : "Unknown Location"}</h3>
-                  {/* FIX 4: Use 'dateandtime' */}
+                  
                   <p className="card-date">{formatDate(report.dateandtime)}</p>
                   <span className="click-hint">Click to view details</span>
                 </div>

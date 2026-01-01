@@ -22,6 +22,11 @@ const reportsSchema = new schema({
     evidence:{
         type : String,
         required : false
+    },
+    status:{
+        type : String,
+        enum : ['pending','resolved','dismissed'],
+        default : 'pending'
     }
 },{timestamps : true});
 
