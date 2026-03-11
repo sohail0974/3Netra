@@ -13,7 +13,7 @@ const reportsSchema = new schema({
     },
     address:{
         type : String,
-        reruied : false
+        required : false
     },
     dateandtime:{
         type : String,
@@ -27,6 +27,11 @@ const reportsSchema = new schema({
         type : String,
         enum : ['pending','resolved','dismissed'],
         default : 'pending'
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users', // Matches your user model name
+        required: true // If you only want logged-in users to submit
     }
 },{timestamps : true});
 

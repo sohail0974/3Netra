@@ -1,0 +1,60 @@
+/* Background to match your dark theme */
+.map-page-bg {
+  min-height: 100vh;
+  background-color: #f0f0f0; /* Dark background */
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the map horizontally */
+  padding-bottom: 50px;
+}
+
+/* Header Styling with the Red Theme */
+.map-header {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.map-header h1 {
+  color: #d30a0a; /* The 3Netra Red */
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.map-header p {
+  color: #2a2929;
+  font-size: 1.1rem;
+}
+
+
+.map-wrapper {
+  width: 90%; /* Responsive width */
+  max-width: 1100px; /* Prevents it from getting too huge on big screens */
+  height: 550px; /* Fixed height so it doesn't take the whole screen */
+  
+  /* The Red Theme accents on the map container */
+  border: 3px solid #f63b3b; 
+  border-radius: 12px;
+  box-shadow: 0px 8px 24px rgba(240, 37, 37, 0.15); /* Soft red glow */
+  overflow: hidden; 
+}
+
+/* Optional: Styling the Popup text to look a bit cleaner */
+.custom-popup strong {
+  color: #333; /* Dark text for readability on the white popup */
+}
+
+.status.pending {
+  color: #f02525;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status.investigating {
+  color: #e6a800;
+  font-weight: bold;
+  text-transform: uppercase;
+}

@@ -31,7 +31,7 @@ const Feature = () => {
         {/* Card 3: Direct Authority Liaison */}
         <div className="feature-card-light">
           <img src={Authorities} alt="Direct Authority Liaison Icon" className="card-icon-light" />
-          <h3 className="card-title-light">Direct Authority Liaison</h3>
+          <h3 className="card-title-light">Direct Reporting to Authorities</h3>
           <p className="card-description-light">
             Seamlessly connect vital intelligence to relevant law enforcement agencies. Reports are securely transmitted, providing officials with the precise data needed for swift and effective intervention.
           </p>

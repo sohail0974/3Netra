@@ -5,7 +5,7 @@ import video_icon from '../../../assets/video_bg.png';
 
 const About = () => {
   return (
-    <div className="About_bg">
+    <div className="About_bg" id='About_us'>
       <h2 className='About_head'>About Us</h2>
     <div className="about">
         <div className="left-about">

@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Report = require('../models/submitReport');
-const upload = require('../middleware/uploadmiddleware')
+const upload = require('../middleware/uploadmiddleware');
+const ensureAuthenticated = require('../middleware/Auth');
+const { getMyReports, submitReport } = require('../controllers/ReportController');
 
 router.get('/',async (req,res)=>{
     try{
@@ -12,23 +14,11 @@ router.get('/',async (req,res)=>{
         res.status(500).json({error : error.message});
     }
 })
-router.post('/',upload.single('evidence'), async (req,res)=>{
-    const {location,description,dateandtime,address} = req.body;
-    const evidencePath = req.file? req.file.path : null;
-    console.log(req.file);
-    try{
-    const newReport = await Report.create({
-        location:JSON.parse(location),
-        address :address || "Unknown Location",
-        description,
-        dateandtime,
-        evidence:evidencePath
-    })
-    res.status(201).json(newReport);
-    }
-    catch(error){
-        console.error("Error saving report:", error);
-        res.status(400).json({error:error.message});
-    }
-});
+
+// ensureAuthenticated reads the token so userId can be saved with the report
+router.post('/', ensureAuthenticated, upload.single('evidence'), submitReport);
+
+// Protected route - only logged-in users can see their own reports
+router.get('/my-reports', ensureAuthenticated, getMyReports);
+
 module.exports = router;

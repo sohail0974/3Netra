@@ -3,6 +3,12 @@ import './Reportform.css';
 import { MapContainer, TileLayer, useMap, Marker } from 'react-leaflet';
 import L from 'leaflet';
 
+// 1. Import Toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// Adjust this path if your Toast.js is located somewhere else!
+import { handleSuccess, handleError } from '../../../Toast'; 
+
 // Fix for default marker icons
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -33,10 +39,8 @@ const Reportform = () => {
   const [isSubmitting, setisSubmitting] = useState(false);
   const markerRef = useRef(null);
 
- 
   const fetchAddressFromCords = async (lat, lng) => {
     try {
-      
       const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
       const data = await response.json();
       if (data && data.display_name) {
@@ -56,7 +60,6 @@ const Reportform = () => {
 
     const timerId = setTimeout(async () => {
       setLoading(true);
-      
       const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${searchQuery}&limit=5`);
       const data = await response.json();
       setSuggestions(data || []);
@@ -83,6 +86,7 @@ const Reportform = () => {
     const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${searchQuery}`);
     const data = await response.json()
     setLoading(false);
+    
     if (data && data.length > 0) {
       const result = data[0];
       const newLoc = { lat: parseFloat(result.lat), lng: parseFloat(result.lon) };
@@ -94,7 +98,8 @@ const Reportform = () => {
       }));
       setSearchQuery(result.display_name);
     } else {
-      alert("Location not found.");
+      // 2. Replaced alert
+      handleError("Location not found.");
     }
   };
 
@@ -122,10 +127,12 @@ const Reportform = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.description || !formData.dateandtime) {
-      alert("please fill in the required details"); 
+      // 3. Replaced alert
+      handleError("Please fill in the required details"); 
       return;
     }
     setisSubmitting(true);
+    
     try {
       const dataPayLoad = new FormData();
       dataPayLoad.append('location', JSON.stringify(formData.location));
@@ -136,13 +143,19 @@ const Reportform = () => {
         dataPayLoad.append('evidence', formData.evidence);
       }
 
-      const response = await fetch('http://localhost:4000/api/reports', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/reports`, {
         method: 'POST',
+        headers: {
+          'Authorization': localStorage.getItem('token')
+          // Note: Do NOT set Content-Type when sending FormData — browser sets it automatically
+        },
         body: dataPayLoad
       });
       const json = await response.json();
+      
       if (response.ok) {
-        alert("Report submitted successfully!");
+        // 4. Replaced alert
+        handleSuccess("Report submitted successfully!");
         setFormData({
           location: { lat: 17.454299385717466, lng: 78.42541349042502 },
           address: '',
@@ -153,11 +166,11 @@ const Reportform = () => {
         setSearchQuery('');
         document.getElementById('evidence').value = '';
       } else {
-        // If backend sends "address is not defined", it shows here
         throw new Error(json.error || "Failed to submit report.");
       }
     } catch (error) {
-      alert(`Error: ${error.message}`)
+      // 5. Replaced alert
+      handleError(error.message || "An error occurred");
     } finally {
       setisSubmitting(false);
     }
@@ -167,6 +180,7 @@ const Reportform = () => {
     <div className='page-container'>
        <h2 className="Form_title">Submit Report</h2>
        <form className='report_form' onSubmit={handleSubmit} >
+        {/* ... All your existing form fields ... */}
         <div className="form_section">
           <label htmlFor='location_search' className='form_label'>Location of Incident</label>
           <div className="map_search_wrapper">
@@ -225,8 +239,13 @@ const Reportform = () => {
             {isSubmitting? 'Submitting Report' : 'Submit Form'}
           </button>
         </div>
+
+        {/* 6. Added the ToastContainer at the bottom of the form */}
+        <ToastContainer />
+
        </form>
     </div>
   )
 }
+
 export default Reportform;

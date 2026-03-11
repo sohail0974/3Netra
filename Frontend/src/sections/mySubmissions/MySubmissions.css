@@ -1,0 +1,165 @@
+.submissions-page-bg {
+    min-height: 100vh;
+    background-color: #f4f5f7;
+    padding-top: 100px; /* Accounts for navbar */
+    display: flex;
+    justify-content: center;
+}
+
+.submissions-container {
+    width: 90%;
+    max-width: 900px;
+}
+
+.submissions-header {
+    margin-bottom: 30px;
+}
+
+.submissions-header h1 {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    font-weight: 700;
+    border-left: 5px solid #cc0000;
+    padding-left: 15px;
+    margin: 0 0 10px 0;
+}
+
+.submissions-header p {
+    color: #718096;
+    margin-left: 20px;
+}
+
+/* Card Styling exactly like your screenshot */
+.reports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.report-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #cc0000; /* Signature Red Accent */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.report-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.report-address {
+    color: #cc0000; /* Red title */
+    font-size: 1.25rem;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+}
+
+.report-date {
+    color: #718096;
+    font-size: 0.9rem;
+    margin: 0 0 15px 0;
+}
+
+.report-description {
+    color: #4a5568;
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+.report-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #edf2f7;
+    padding-top: 15px;
+}
+
+.details-btn {
+    color: #a0aec0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.details-btn:hover {
+    color: #cc0000;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-badge.pending {
+    background-color: #fee2e2;
+    color: #cc0000;
+}
+
+.status-badge.investigating {
+    background-color: #fef3c7;
+    color: #d69e2e;
+}
+
+.status-badge.resolved {
+    background-color: #c6f6d5;
+    color: #38a169;
+}
+/* MODAL STYLES (Copied from ViewReports)    */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 2000; padding: 20px; backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background-color: white; width: 100%; max-width: 700px; max-height: 90vh;
+  border-radius: 12px; padding: 30px; position: relative; overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn {
+  position: absolute; top: 15px; right: 20px; font-size: 2rem;
+  background: none; border: none; cursor: pointer; color: #999;
+}
+
+.close-btn:hover { 
+  color: #cc0000; /* Updated to match your theme's red */
+}
+
+.modal-title { 
+  margin-top: 0; color: #cc0000; font-size: 1.5rem; margin-bottom: 5px; padding-right: 30px; 
+}
+
+.modal-date { 
+  color: #666; margin-top: 0; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; 
+}
+
+.modal-body h4 { 
+  margin-bottom: 10px; color: #333; 
+}
+
+.modal-text-section { 
+  margin-bottom: 25px; 
+}
+
+.evidence-img { 
+  width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd; margin-top: 5px; 
+}
+
+.modal-map-section { 
+  width: 100%; 
+}
+
+.mini-map-container { 
+  height: 250px; width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; 
+}

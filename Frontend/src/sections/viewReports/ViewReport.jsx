@@ -24,7 +24,7 @@ const ViewReports = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/reports');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/reports`);
         const json = await response.json();
         if (response.ok) {
           setReports(json);

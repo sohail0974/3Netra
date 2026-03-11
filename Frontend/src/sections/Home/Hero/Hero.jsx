@@ -83,11 +83,11 @@ const Hero = () => {
           <span className="typing-cursor">|</span>
         </h1>
         <p>
-             Our platform provides a secure and anonymous way for you to report illegal drug activity. By submitting evidence and locations, you help authorities take action and make your community safer for everyone, without compromising your identity.
+             This platform facilitates the secure and anonymous reporting of illegal drug activity. Submitting evidence and specific locations empowers authorities to address safety concerns effectively, allowing for community-driven intervention without compromising individual privacy.
         </p>
         <div className='hero-buttons'>
           <Link to='/submit_report'><button className='hero-btn btn-primary' >Submit Report</button></Link>
-          <button className='hero-btn btn-secondary'>View Map</button>
+          <Link to='/map-overview'><button className='hero-btn btn-secondary'>View Map</button></Link>
         </div>
       </div>
     </div>

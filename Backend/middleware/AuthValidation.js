@@ -1,15 +1,31 @@
-const joi = require('joi');
+const Joi = require('joi');
 
-const LoginValidation = async(req,res,next)=>{
-    const Schema = joi.object({
-        name:joi.string().min(3).max(20).required(),
-        email:joi.string().email().required(),
-        password:joi.string().min(4).max(20).required()
+const signupValidation = async(req,res,next)=>{
+    const Schema = Joi.object({
+        name: Joi.string().min(3).max(20).required(),
+        email: Joi.string().email().required(),
+        password: Joi.string().min(4).max(20).required()
     
     })
     const {error} = Schema.validate(req.body);
     if(error){
-        return res.status(400).json({message:"Bad request",error})
+        return res.status(400)
+        .json({message:"Bad request",error});
     }
     next();
+}
+const loginValidation = async(req,res,next)=>{
+    const Schema = Joi.object({
+        email: Joi.string().email().required(),
+        password: Joi.string().min(4).max(20).required()
+    })
+    const {error} = Schema.validate(req.body);
+    if(error){
+        return res.status(400).json({message:"Bad request",error});
+    }
+    next();
+}
+module.exports={
+    signupValidation,
+    loginValidation
 }
