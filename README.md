@@ -1,6 +1,6 @@
 # 3Netra 
 
-**3Netra** is an anonymous crime and incident reporting web application. It allows citizens to submit geo-tagged incident reports — including photos as evidence — without revealing their identity. Authorities and the public can view all reports on an interactive map and list view, while logged-in users can track their own submissions.
+**3Netra** is an anonymous crime and incident reporting web application. It allows citizens to submit geo-tagged incident reports including photos as evidence without revealing their identity. Authorities and the public can view all reports on an interactive map and list view, while logged-in users can track their own submissions.
 
 🌐 **[Access the Live Application Here](https://3-netra.vercel.app)**
 
